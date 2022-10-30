@@ -105,10 +105,10 @@ polynomial_svm_clf.fit(X, y)
 
 Pipeline(memory=None, steps=[('scaler', StandardScaler(copy=True, with_mean=True, with_std=True)), ('svm_clf', SVC(C=1, break_ties=False, cache_size=200, class_weight=None, coef0=10.0, decision_function_shape='ovr', degree=5, gamma='scale', kernel='poly', max_iter=-1, probability=False, random_state=None, shrinking=True, tol=0.001, verbose=False))], verbose=False)
 
-yhat = polynomial_svm_clf.predict(X)
+yhat = polynomial_svm_clf.predict(X)  
 print(yhat)
 
-url = 'https://github.com/dknife/ML/raw/main/data/Proj2/test_data/'
+url = './test_data/'
 
 test_images = []
 
