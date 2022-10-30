@@ -5,17 +5,6 @@ from skimage.io import imread
 from skimage.transform import resize
 from skimage.feature import hog
 
-url = 'https://github.com/dknife/ML/raw/main/data/Proj2/faces/'
-
-face_images = []
-
-for i in range(15):
-    file = url + 'img{0:02d}.jpg'.format(i+1)
-    img = imread(file)
-    img = resize(img, (64,64))
-    face_images.append(img)
-
-
 def plot_images(nRow, nCol, img):
     fig = plt.figure()
     fig, ax = plt.subplots(nRow, nCol, figsize = (nCol,nRow))
@@ -26,6 +15,16 @@ def plot_images(nRow, nCol, img):
             axis.get_xaxis().set_visible(False)
             axis.get_yaxis().set_visible(False)
             axis.imshow(img[i*nCol+j])
+
+url = 'https://github.com/dknife/ML/raw/main/data/Proj2/faces/'
+
+face_images = []
+
+for i in range(15):
+    file = url + 'img{0:02d}.jpg'.format(i+1)
+    img = imread(file)
+    img = resize(img, (64,64))
+    face_images.append(img)
 
 
 plot_images(3,5, face_images)
@@ -107,6 +106,10 @@ Pipeline(memory=None, steps=[('scaler', StandardScaler(copy=True, with_mean=True
 
 yhat = polynomial_svm_clf.predict(X)  
 print(yhat)
+
+
+# -------------------------- #
+#  자신의 사진을 넣고 테스트 해보기  #
 
 url = './test_data/'
 
